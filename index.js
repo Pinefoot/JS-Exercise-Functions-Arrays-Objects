@@ -68,13 +68,7 @@ function makePersonObject(id, name, email) {
  * the returned value should look like `Hello, my name is Leia`.
 */
 function getName(name) {
-
-  const person = {
-    name: ,
-  }
-
-  return 'Hello, my name is ' + person.name;
-
+  return `Hello, my name is ${name.name}`;
 }
 
 
@@ -92,8 +86,19 @@ function getName(name) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+function makeSmartPerson(name, sum) {
+    const smartPerson = {
+      name: name,
+      sum: function add(num1, num2){
+        return num1+num2;
+      },
+      speak: function say(){
+        return `Hello my name is ${name}`;
+      },
+    }
+    return smartPerson;
+    
+  
 }
 
 
@@ -155,7 +160,11 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+    const the0th = inventory.find((item, index) =>{
+      return index === 0
+  })
+  return `This is a ${the0th.car_make} ${the0th.car_model}`;
+  
 }
 
 /**
@@ -169,8 +178,11 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory, index) {
+  const lastCar = inventory.find((item, index) =>{
+    return index === 49;
+  })
+  return `This is a ${lastCar.car_make} ${lastCar.car_model}`;
 }
 
 /**
@@ -185,8 +197,11 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(id, index) {
+  const carInfo = id.find ((id, index) =>{
+    return index === 0
+  })
+  return `This is a ${carInfo.car_make} ${carInfo.car_model}`;
 }
 
 /**
@@ -197,9 +212,22 @@ function getCarInfoById(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
+function sortCarInventory(inventory) {
+  const sortCar = inventory.sort(function(a,b){
+    if (a.car_model < b.car_model){
+      return -1;
+    }
+    if (a.car_model > b.car_model){
+      return 1;
+    }
+  });
+
+  
+  return sortCar;
+ 
 }
+
+  
 
 /**
  * ### Challenge `getModelYears`
@@ -210,9 +238,18 @@ function sortCarInventory(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
-}
+function getModelYears(inventory) {
+  const yearPls = [];
+    for ( var i = 0; i<inventory.length; i++ ){
+      yearPls.push( inventory[i].car_year);
+      
+        }
+  
+    return yearPls;
+    
+
+} 
+
 
 /**
  * ### Challenge `getOlderCars`
@@ -226,8 +263,19 @@ function getModelYears(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(inventory) {
+   const oldCar = [];
+      for (let i =0; i<inventory.length; i++){
+        const maxYear = 2000;
+        if (inventory[i].car_year <= maxYear){
+          }
+        
+       
+
+        
+        return oldCar;
+      }
+    
 }
 
 /**
@@ -263,8 +311,12 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
+const sum = null; // code here! 
+//  const sum = (a,b)=>{
+//    return a+b;
+// }
 const addFive = null; // code here!
+// const addFive = ()
 const argTimesTwo = null; // code here!
 
 /**
