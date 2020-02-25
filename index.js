@@ -263,19 +263,16 @@ function getModelYears(inventory) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(inventory) {
-   const oldCar = [];
+function getOlderCars(inventory, desiredYear) {
+   let oldCar = [];
       for (let i =0; i<inventory.length; i++){
-        const maxYear = 2000;
-        if (inventory[i].car_year <= maxYear){
-          }
-        
-       
-
-        
-        return oldCar;
-      }
-    
+        if ( inventory[i].car_year <= desiredYear ){
+          oldCar.push(inventory[i]);
+        }  
+      } 
+      return oldCar;
+      
+      
 }
 
 /**
@@ -289,8 +286,15 @@ function getOlderCars(inventory) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(inventory) {
+  const euroCars = [];
+  for (let i=0; i<inventory.length; i++){
+    if (inventory[i].car_make === 'Audi' || inventory[i].car_make === 'Mercedes-Benz' || inventory[i].car_make === 'Volkswagen'||inventory[i].car_make === 'BMW' ){
+      euroCars.push(inventory[i]);
+    } 
+    
+  }
+  return euroCars;
 }
 
 /**
@@ -311,13 +315,17 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
 */
-const sum = null; // code here! 
-//  const sum = (a,b)=>{
-//    return a+b;
-// }
-const addFive = null; // code here!
-// const addFive = ()
-const argTimesTwo = null; // code here!
+//const sum = null; // code here! 
+ const sum = (a,b)=>{
+   return a+b;
+}
+//const addFive = null; // code here!
+ const addFive = (a) =>{
+  return a+5;}
+//const argTimesTwo = null; // code here!
+  const argTimesTwo = (a,b) => {
+    return a*b;
+  }
 
 /**
  * ### Challenge `carMaker`
